@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Build Gotty Image
           command: |
-            else DOCKER_TAG=$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM
+            DOCKER_TAG=$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM
             docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
             docker build -t honestica/gotty:$DOCKER_TAG .
             docker push honestica/gotty:$DOCKER_TAG
