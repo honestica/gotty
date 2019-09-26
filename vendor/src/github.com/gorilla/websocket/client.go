@@ -256,7 +256,7 @@ func (d *Dialer) Dial(urlStr string, requestHeader http.Header) (*Conn, *http.Re
 			// Before closing the network connection on return from this
 			// function, slurp up some of the response to aid application
 			// debugging.
-			buf := make([]byte, 1024)
+			buf := make([]byte, 8192)
 			n, _ := io.ReadFull(resp.Body, buf)
 			resp.Body = ioutil.NopCloser(bytes.NewReader(buf[:n]))
 		}
