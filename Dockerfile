@@ -1,4 +1,4 @@
-FROM golang:1.9.4 AS builder
+FROM golang:1.13.8 AS builder
 
 COPY . /src
 
@@ -10,7 +10,7 @@ ENV GOPATH="/src:/src/vendor:/"
 
 RUN make cross_compile
 
-FROM alpine:3.9 AS final
+FROM alpine:3.11.3 AS final
 
 WORKDIR /
 
