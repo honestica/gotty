@@ -55,7 +55,7 @@ func TestWriteFromPTY(t *testing.T) {
 	if buf[0] != Output {
 		t.Fatalf("Unexpected message type `%c`", buf[0])
 	}
-	decoded := make([]byte, 813276892)
+	decoded := make([]byte, 32768)
 	n, err = base64.StdEncoding.Decode(decoded, buf[1:n])
 	if err != nil {
 		t.Fatalf("Unexpected error from Decode(): %s", err)
